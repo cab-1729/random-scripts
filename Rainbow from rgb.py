@@ -25,6 +25,4 @@ run(ramp_blue)
 run(dec_green)
 run(ramp_red)
 run(dec_blue)
-print(total)
 pic.save('rainbow.png')
-
