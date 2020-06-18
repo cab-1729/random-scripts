@@ -37,4 +37,4 @@ if func.__name__=="<lambda>":
 elif callable(func):
     print('func is an ordinary function')
 else:
-    print('func is not a functio
+    print('func is not a function')
