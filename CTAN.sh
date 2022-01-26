@@ -1,4 +1,4 @@
-#last run: Wednesday 
+#last run: 
 #Program to download all CTAN Latex documentation and store it locally
 set -x
 cat <(echo "#last run:" $(date +'%c')) <(tail -n +2 "$0") > .temp
