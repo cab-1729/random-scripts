@@ -12,7 +12,6 @@ cut -b 85- | cut -d \. -f 1 |
 {
 	while read package; do
 		[ -d "Source/$package" ] || mkdir Source/$package
-		[ -d "Docs/$package" ] || mkdir Docs/$package
 		curl "https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/$package.zip" > $package.zip
 		unzip $package.zip -d Source/$package
 		rm $package.zip
