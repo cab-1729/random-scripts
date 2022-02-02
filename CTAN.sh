@@ -14,9 +14,15 @@ function server(){ #get all documentation hosted at server
 	{
 		while read package; do
 			curl "$1$package.zip" > $package.zip
-			unzip $package.zip -d "Source/$2"
+			unzip -o $package.zip -d "Source/$2"
+			doc=$(find "Source/$2/$(
+				unzip -l $package.zip |
+				head -n 4 | 
+				tail -n 1 |
+				cut -d ' ' -f 15
+			)" -name $package.pdf |
+			tail -n 1)
 			rm $package.zip
-			doc=$(find "Source/$2/$package" -name $package.pdf | tail -n 1)
 			[ -z "$doc" ] || ln -s "$(pwd)/$doc" Docs/$package.pdf
 		done
 	}
